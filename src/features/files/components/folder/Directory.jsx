@@ -24,8 +24,6 @@ const Directory = ({file}) => {
                     <img className="file_header_image" src={DotButtonImage} alt=""/>
                 </button>}
                 dropdowns={[{
-                    text: "Скачать", onClick: () => console.log("menu")
-                }, {
                     text: "Переименовать", onClick: () => console.log("menu")
                 }, {
                     text: "Копировать", onClick: () => console.log("menu")
