@@ -27,14 +27,13 @@ export const login = async (email, password) => {
 }
 
 export const auth =  async () => {
-        try {
-            const response = await axios.get(`${API_URL}api/auth/auth`,
-                {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}}
-            )
-            localStorage.setItem('token', response.data.token)
-            return response.data.user
-        } catch (e) {
-            localStorage.removeItem('token')
-        }
-
+    try {
+        const response = await axios.get(`${API_URL}api/auth/auth`,
+            {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}}
+        )
+        localStorage.setItem('token', response.data.token)
+        return response.data.user
+    } catch (e) {
+        localStorage.removeItem('token')
+    }
 }
