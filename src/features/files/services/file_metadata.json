@@ -1,39 +1,39 @@
 {
-    "data": [
-        {
-            "id": 1,
-            "name": "name_1",
-            "type": "folder",
-            "timestamp": "2023-04-09T18:52:22+00:00",
-            "fileUrl": "http://localhost:228",
-            "size": 1000000,
-            "filecount": 1000
-        },
-        {
-            "id": 2,
-            "name": "name_2",
-            "type": "folder",
-            "timestamp": "2023-04-09T18:52:22+00:00",
-            "fileUrl": "http://localhost:228",
-            "size": 1000000,
-            "filecount": 10
-        },
-        {
-            "id": 3,
-            "name": "name_3",
-            "type": "media",
-            "timestamp": "2023-04-09T18:52:22+00:00",
-            "fileUrl": "http://localhost:228",
-            "size": 1000,
-            "previewUrl": "https://img.joomcdn.net/6a1c4ddf9bf55e477892a81e4939ebaf8e06e422_1024_1024.jpeg"
-        },
-        {
-            "id": 4,
-            "name": "name_4",
-            "type": "file",
-            "timestamp": "2023-04-09T18:52:22+00:00",
-            "fileUrl": "http://localhost:228",
-            "size": 1000
-        }
-    ]
+  "data": [
+    {
+      "id": 1,
+      "name": "name_1",
+      "type": "folder",
+      "timestamp": "2023-04-09T18:52:22+00:00",
+      "fileUrl": "http://localhost:228",
+      "size": 1000000,
+      "filecount": 1000
+    },
+    {
+      "id": 2,
+      "name": "name_2",
+      "type": "folder",
+      "timestamp": "2023-04-09T18:52:22+00:00",
+      "fileUrl": "http://localhost:228",
+      "size": 1000000,
+      "filecount": 10
+    },
+    {
+      "id": 3,
+      "name": "name_3",
+      "type": "media",
+      "timestamp": "2023-04-09T18:52:22+00:00",
+      "fileUrl": "http://localhost:228",
+      "size": 1000,
+      "previewUrl": "https://img.joomcdn.net/6a1c4ddf9bf55e477892a81e4939ebaf8e06e422_1024_1024.jpeg"
+    },
+    {
+      "id": 4,
+      "name": "name_4",
+      "type": "file",
+      "timestamp": "2023-04-09T18:52:22+00:00",
+      "fileUrl": "http://localhost:228",
+      "size": 1000
+    }
+  ]
 }

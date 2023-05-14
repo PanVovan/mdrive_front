@@ -8,7 +8,6 @@ a {
   text-decoration: none;
 }
 .menu-trigger img {
-  position: absolute;
   top: 20px;
   right: 20px;
   height: 60px;
@@ -19,7 +18,6 @@ a {
   background-color: #fff;
 }
 .dropdown-menu {
-  position: absolute;
   top: 100px;
   right: 20px;
   background-color: #fff;
@@ -29,7 +27,6 @@ a {
 }
 .dropdown-menu::before {
   content: '';
-  position: absolute;
   top: -5px;
   right: 20px;
   height: 20px;
@@ -64,7 +61,7 @@ h3 span {
   font-weight: 400;
 }
 .dropdown-menu ul li {
-  padding: 10px  0;
+  padding: 10px 0;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 .dropdown-menu ul li:hover a {

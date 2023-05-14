@@ -8,7 +8,7 @@ import {DropdownMenu} from "../../../../components/dropdown/Dropdown";
 
 const Directory = ({file}) => {
     const dispatch = useDispatch()
-    const currentDir = useSelector(state => state.currentDir)
+    const currentDir = useSelector(state => state.files.currentDir)
 
     function openDirHandler(file) {
         dispatch(pushToStack(currentDir))

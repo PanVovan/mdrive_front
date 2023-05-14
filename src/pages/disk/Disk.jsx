@@ -5,26 +5,23 @@ import './disk.css'
 import {FileList} from "../../features/files/components/file_list/FileList";
 import {Provider} from "react-redux";
 import {BrowserRouter} from "react-router-dom";
-import fileReducer, {setCurrentDir} from "../../features/files/reducers/fileReducer";
-import {applyMiddleware, createStore} from "redux";
-import {composeWithDevTools} from 'redux-devtools-extension'
-import thunk from "redux-thunk";
+import {setCurrentDir} from "../../features/files/reducers/fileReducer";
 import Uploader from "../../features/files/components/uploader/Uploader";
+import {store} from "../../reducers";
 
 const Disk = () => {
     const dispatch = useDispatch()
-    const currentDir = useSelector(state => state.currentDir)
-    const dirStack = useSelector(state => state.dirStack)
+    const currentDir = useSelector(state => state.files.currentDir)
+    const dirStack = useSelector(state => state.files.dirStack)
     const [dragEnter, setDragEnter] = useState(false)
 
 
     useEffect(() => {
-        console.log(currentDir)
         dispatch(getFilesAction(currentDir))
     }, [currentDir, dispatch])
 
     function backClickHandler() {
-        const backDirId = dirStack.pop()
+        const backDirId = dirStack?.pop()
         dispatch(setCurrentDir(backDirId))
     }
 
@@ -62,37 +59,32 @@ const Disk = () => {
     }
 
     return (!dragEnter ?
-            <div className="disk" onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler}
-                 onDragOver={dragEnterHandler}>
-                <div className="disk__btns">
-                    <button className="disk__back" onClick={() => backClickHandler()}>Назад</button>
-                    {/*<button className="disk__create" onClick={() => showPopupHandler()}>Создать папку</button>*/}
-                    <div className="disk__upload">
-                        <label htmlFor="disk__upload-input" className="disk__upload-label">Загрузить файл</label>
-                        <input multiple={true} onChange={(event) => fileUploadHandler(event)} type="file"
-                               id="disk__upload-input" className="disk__upload-input"/>
-                    </div>
+        <div className="disk" onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler}
+                              onDragOver={dragEnterHandler}>
+            <div className="disk__btns">
+                <button className="disk__back" onClick={() => backClickHandler()}>Назад</button>
+                {/*<button className="disk__create" onClick={() => showPopupHandler()}>Создать папку</button>*/}
+                <div className="disk__upload">
+                    <label htmlFor="disk__upload-input" className="disk__upload-label">Загрузить файл</label>
+                    <input multiple={true} onChange={(event) => fileUploadHandler(event)} type="file"
+                           id="disk__upload-input" className="disk__upload-input"/>
                 </div>
-                <FileList/>
-                {/*<Popup/>*/}
-                <Uploader/>
             </div>
-            :
-            <div className="drop-area" onDrop={dropHandler} onDragEnter={dragEnterHandler}
-                 onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>
-                Перетащите файлы сюда
-            </div>
-    )
+            <FileList/>
+            {/*<Popup/>*/}
+            <Uploader/>
+        </div> : <div className="drop-area" onDrop={dropHandler} onDragEnter={dragEnterHandler}
+                      onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>
+            Перетащите файлы сюда
+        </div>)
 };
 
 export default Disk;
 
-const Wrapper = () => (
-    <Provider store={createStore(fileReducer, composeWithDevTools(applyMiddleware(thunk)))}>
+const Wrapper = () => (<Provider store={store}>
         <BrowserRouter>
             <Disk>
 
             </Disk>
         </BrowserRouter>
-    </Provider>
-);
+    </Provider>);

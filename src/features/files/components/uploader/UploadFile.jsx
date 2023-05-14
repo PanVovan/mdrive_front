@@ -5,6 +5,7 @@ import {removeUploadFile} from "../../reducers/uploadReducer";
 
 const UploadFile = ({file}) => {
     const dispatch = useDispatch()
+    console.log(file)
 
     return (
         <div className="upload-file">
