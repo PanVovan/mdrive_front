@@ -1,0 +1,9 @@
+.grid_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  row-gap: 50px;
+  column-gap: 20px;
+  justify-content: center;
+}
+/*# sourceMappingURL=filelist.css.map */
