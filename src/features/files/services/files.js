@@ -4,9 +4,10 @@ import {API_FILE_URL} from "../../../config";
 export const getFiles = async (dirId) => {
     try {
         let url = `${API_FILE_URL}api/getfiles`
-        // if (dirId) {
-        //     url = `${API_FILE_URL}api/getfiles?parent=${dirId}`
-        // }
+        if (dirId) {
+            url = `${API_FILE_URL}api/getfiles/${dirId}`
+        }
+        console.log(url)
         // if (sort) {
         //     url = `${API_FILE_URL}api/getfiles?sort=${sort}`
         // }
@@ -16,6 +17,8 @@ export const getFiles = async (dirId) => {
         let response = await axios.get(url, {
             headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
         });
+        console.log(response)
+
         return response.data.data
     } catch (e) {
         alert(e.response.data.message)

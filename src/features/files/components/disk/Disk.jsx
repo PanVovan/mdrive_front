@@ -12,9 +12,11 @@ import thunk from "redux-thunk";
 
 const Disk = () => {
     const dispatch = useDispatch()
-    const currentDir = useSelector(state => state.files.currentDir)
+    const currentDir = useSelector(state => state.currentDir)
+    const dirStack = useSelector(state => state.dirStack)
 
     useEffect(() => {
+        console.log(currentDir)
         dispatch(getFilesAction(currentDir))
     }, [currentDir, dispatch])
     
