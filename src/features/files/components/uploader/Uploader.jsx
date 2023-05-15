@@ -9,12 +9,11 @@ const Uploader = () => {
     const isVisible = useSelector(state => state.upload.isVisible)
     const dispatch = useDispatch()
 
-    console.log(files)
     return (isVisible &&
         <div className="uploader">
             <div className="uploader__header">
                 <div className="uploader__title">Загрузки</div>
-                <button className="uploader__close" onClick={() => dispatch(hideUploader())}>X</button>
+                <button className="uploader__close" onClick={() => dispatch(hideUploader())}>×</button>
             </div>
             {files.map((file) =>
                 <UploadFile key={file.id} file={file}/>

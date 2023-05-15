@@ -50,12 +50,6 @@ export const uploadFile = async (file, dirId, onCreateUploadedFile, onUploadProg
         if (onCreateUploadedFile) onCreateUploadedFile(uploadFile)
         const response = await axios.post(`${API_FILE_URL}api/files/upload`, formData, {
             headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},
-            // onUploadProgress: progressEvent => {
-            //     const totalLength = progressEvent.lengthComputable ? progressEvent.total : progressEvent.target.getResponseHeader('content-length') || progressEvent.target.getResponseHeader('x-decompressed-content-length');
-            //     if (totalLength) {
-            //         uploadFile.progress = Math.round((progressEvent.loaded * 100) / totalLength)
-            //     }
-            // }
             onUploadProgress: (_) => {
                 //     const totalLength = progressEvent.lengthComputable ? progressEvent.total : progressEvent.target.getResponseHeader('content-length') || progressEvent.target.getResponseHeader('x-decompressed-content-length');
                 //     if (totalLength) {
@@ -73,12 +67,13 @@ export const uploadFile = async (file, dirId, onCreateUploadedFile, onUploadProg
 
 
 export const downloadFile = async (file) => {
-    const response = await fetch(`${API_FILE_URL}api/files/download?id=${file._id}`, {
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-    })
-    if (response.status === 200) {
+    console.log(file.fileUrl)
+    const response = await fetch(
+        //`${API_FILE_URL}api/files/download?id=${file.id}`,
+        file.fileUrl, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' }
+    ).catch(e => console.log(e))
+
+    console.log(response)
         const blob = await response.blob()
         const downloadUrl = window.URL.createObjectURL(blob)
         const link = document.createElement('a')
@@ -87,8 +82,8 @@ export const downloadFile = async (file) => {
         document.body.appendChild(link)
         link.click()
         link.remove()
-    }
-    return response
+
+    //return response
 }
 
 export const deleteFile = async (file) => {

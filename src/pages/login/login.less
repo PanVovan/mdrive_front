@@ -7,6 +7,7 @@
   align-items: center;
   background-color: white;
   border-radius: 20px;
+  justify-content: center;
   padding: 30px;
   align-self: center;
   margin-top: 100px;
@@ -14,6 +15,16 @@
   &__header {
     font-size: 30px;
     font-weight: 700;
+    margin: 20px 50px 20px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 16px;
+
+    img{
+      height: 80px;
+    }
   }
 
   input {
@@ -22,12 +33,27 @@
 
   &__btn {
     border: none;
-    background-color: @font-color;
-    border-radius: 8px;
+    background: @background-color;
     color: white;
     font-weight: 700;
-    padding: 5px 10px;
-    align-self: flex-end;
-    margin-top: 10px;
+    padding: 16px 32px;
+    align-self: center;
+    margin-top: 40px;
+    box-shadow: 0 4px 10px rgba(128, 117, 255, 0.75);
+    border-radius: 16px;
+  }
+
+  &__container{
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+
+    label {
+
+      margin: 10px 20px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
 }

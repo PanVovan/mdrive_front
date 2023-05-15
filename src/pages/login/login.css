@@ -1,33 +1,51 @@
 .authorization {
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    align-items: center;
-    background-color: white;
-    border-radius: 20px;
-    padding: 30px;
-    align-self: center;
-    margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  justify-content: center;
+  padding: 30px;
+  align-self: center;
+  margin-top: 100px;
 }
-
 .authorization__header {
-    font-size: 30px;
-    font-weight: 700;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 20px 50px 20px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  gap: 16px;
 }
-
+.authorization__header img {
+  height: 80px;
+}
 .authorization input {
-    margin: 10px 20px;
+  margin: 10px 20px;
 }
-
 .authorization__btn {
-    border: none;
-    background-color: #566885;
-    border-radius: 8px;
-    color: white;
-    font-weight: 700;
-    padding: 5px 10px;
-    align-self: flex-end;
-    margin-top: 10px;
+  border: none;
+  background: #8075FF;
+  color: white;
+  font-weight: 700;
+  padding: 16px 32px;
+  align-self: center;
+  margin-top: 40px;
+  box-shadow: 0 4px 10px rgba(128, 117, 255, 0.75);
+  border-radius: 16px;
 }
-
+.authorization__container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+.authorization__container label {
+  margin: 10px 20px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
 /*# sourceMappingURL=login.css.map */

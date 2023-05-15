@@ -1,29 +1,30 @@
+:root {
+  --primary-bg: #242526;
+  --secondary-bg: #fff;
+  --primary-text-color: #555;
+  --secondary-text-color: #cecece;
+  --border-radius: 20px;
+  --speed: 500ms;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 ul {
-  list-style: none;
+  list-style-type: none;
+}
+li {
+  list-style-type: none;
 }
 a {
   text-decoration: none;
 }
-.menu-trigger img {
-  top: 20px;
-  right: 20px;
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  overflow: hidden;
-  cursor: pointer;
-  background-color: #fff;
-}
 .dropdown-menu {
-  top: 100px;
-  right: 20px;
+  position: absolute;
   background-color: #fff;
   border-radius: var(--border-radius);
-  padding: 10px 20px;
+  padding: 2px 4px;
   width: 200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .dropdown-menu::before {
   content: '';
@@ -48,7 +49,7 @@ a {
 }
 h3 {
   width: 100%;
-  text-align: center;
+  text-align: left;
   font-size: 18px;
   padding: 20px 0;
   font-weight: 500;
@@ -74,17 +75,9 @@ h3 span {
 }
 .dropdownItem {
   display: flex;
-  margin: 10px auto;
-}
-.dropdownItem img {
-  max-width: 20px;
-  margin-right: 10px;
-  opacity: 0.5;
-  transition: var(--speed);
 }
 .dropdownItem a {
   max-width: 100px;
-  margin-left: 10px;
   transition: var(--speed);
 }
 /*# sourceMappingURL=dropdown.css.map */

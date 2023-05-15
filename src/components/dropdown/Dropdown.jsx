@@ -1,9 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react';
-//import "./dropdown.css"
+import "./dropdown.css"
 
 export const DropdownItem = (props) => {
     return (
-        <li className='dropdownItem' onClick={props.onClick}>
+        <li className='dropdownItem' onClick={(e) => props.onClick(e)}>
             <a> {props.text} </a>
         </li>
     );
@@ -23,7 +23,6 @@ export const DropdownMenu = ({trigger, dropdowns}) => {
 
         document.addEventListener("mousedown", handler);
 
-
         return () => {
             document.removeEventListener("mousedown", handler);
         }
@@ -41,8 +40,8 @@ export const DropdownMenu = ({trigger, dropdowns}) => {
                     {dropdowns?.map((file, index) => <DropdownItem
                         key={index}
                         text={file.text}
-                        onClick={() => {
-                            file.onClick()
+                        onClick={(e) => {
+                            file.onClick(e)
                         }}
                     ></DropdownItem>)}
                 </ul>

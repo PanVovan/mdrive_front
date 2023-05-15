@@ -4,8 +4,28 @@ import FileIcon from "../../../../assets/text-document-svgrepo-com.svg";
 import './file.css'
 import {getSizeString} from "../../utils/size";
 import {DropdownMenu} from "../../../../components/dropdown/Dropdown";
+import {useDispatch, useSelector} from "react-redux";
+import {downloadFile} from "../../services/files";
+import {deleteFileAction} from "../actions";
 
 const File = ({file}) => {
+
+    const dispatch = useDispatch()
+    const currentDir = useSelector(state => state.files.currentDir)
+    const fileView = useSelector(state => state.files.view)
+
+
+    function downloadClickHandler(e) {
+        e.stopPropagation()
+        console.log("start_")
+        downloadFile(file)
+    }
+
+    function deleteClickHandler(e) {
+        e.stopPropagation()
+        dispatch(deleteFileAction(file))
+    }
+
     return (
         <div className="file_card">
             <div className="file_header">
@@ -15,7 +35,7 @@ const File = ({file}) => {
                         <img className="file_header_image" src={DotButtonImage} alt=""/>
                     </button>}
                     dropdowns={[{
-                        text: "Скачать", onClick: () => console.log("menu")
+                        text: "Скачать", onClick: (e) => downloadClickHandler(e)
                     }, {
                         text: "Переименовать", onClick: () => console.log("menu")
                     }, {
@@ -25,7 +45,7 @@ const File = ({file}) => {
                     }, {
                         text: "Вставить", onClick: () => console.log("menu")
                     }, {
-                        text: "Удалить", onClick: () => console.log("menu")
+                        text: "Удалить", onClick: (e) => deleteClickHandler(e)
                     }]}
                 />
             </div>

@@ -1,8 +1,12 @@
 .grid_container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
   grid-gap: 20px;
-  row-gap: 50px;
+  row-gap: 30px;
   column-gap: 20px;
-  justify-content: center;
+  justify-content: space-between;
+  background: rgba(33, 26, 29, 0.1);
+  padding: 20px;
+  border-radius: 20px;
 }

@@ -1,5 +1,5 @@
-import {getFiles, uploadFile} from "../../services/files";
-import {addFile, setFiles} from "../../reducers/fileReducer";
+import {deleteFile as deleteFileReq, getFiles, uploadFile} from "../../services/files";
+import {addFile, deleteFile, setFiles} from "../../reducers/fileReducer";
 import {addUploadFile, changeUploadFile, showUploader} from "../../reducers/uploadReducer";
 
 export const getFilesAction = (dirId) => {
@@ -17,5 +17,11 @@ export const uploadFileAction = (file, dirId) => {
             (ss) => dispatch(addUploadFile(ss)),
             (e) => dispatch(changeUploadFile(e))
         ).then((r) => dispatch(addFile(r)))
+    }
+}
+
+export const deleteFileAction = (file) => {
+    return async dispatch => {
+        deleteFileReq(file).then(r => dispatch(deleteFile(r.id)))
     }
 }

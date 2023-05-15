@@ -5,7 +5,8 @@
   height: 300px;
   width: 300px;
   position: fixed;
-  background-color: @font-color;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   bottom: 0;
   right: 0;
   padding: 20px;
@@ -18,18 +19,23 @@
   }
 
   &__title {
-    color: @background-color;
+    color: black;
     font-size: 1.2rem;
+    font-weight: bold;
   }
 
   &__close {
-    padding: 3px;
+    border-color: transparent;
+    background-color: transparent;
+    color: black;
+    font-size: 1.6rem;
   }
 }
 
 
 .upload-file {
-  background-color: @background-color;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   border-radius: 8px;
   margin: 5px 0;
   padding: 5px 10px;
@@ -42,19 +48,34 @@
   &__progress-bar {
     height: 1rem;
     border-radius: 8px;
-    background-color: @font-color;
+    background-color: lightgray;
     display: flex;
     margin: 3px 0;
   }
 
   &__upload-bar {
-    background-color: green;
+    background-color: @background-color;
+    height: 16px;
     border-radius: 8px;
   }
 
   &__percent {
-    color: @background-color;
+    color: white;
     left: 50%;
+    font-size: 12px;
     position: absolute;
+  }
+
+  &__title {
+    color: black;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  &__remove {
+    border-color: transparent;
+    background-color: transparent;
+    color: black;
+    font-size: 1.2rem;
   }
 }
